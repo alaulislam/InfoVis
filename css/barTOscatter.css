@@ -1,0 +1,169 @@
+
+		body { 
+			background-color: white;
+			font-family: 'PT Serif', serif;
+		}
+
+		#container {
+			max-width: 1000px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 5px;
+			padding: 1px 10px 10px 10px;
+			background-color: white;
+			box-shadow: 1px 1px 1px 1px #fff;
+		}
+
+		h1 {
+			font-weight: 300;
+			color: darkslategray;
+			font-family: "PT Sans", sans-serif;
+			font-size: 56px;
+			margin-top: 10px;
+			margin-bottom: 0px;
+			}
+
+		h2 {
+			font-weight: 300;
+			color: darkslategray;
+			font-family: "PT Sans", sans-serif;
+			font-size: 32px;
+			margin-bottom: 20px;
+			margin-top: -10px;
+			}
+
+		p {
+			font-size: 18px;
+			margin-top: 4px;
+			margin-bottom: 8px;
+			color: #333;
+		}
+
+		a {
+			color: darkslategray;
+		}
+
+		a:hover {
+			color: darkslategray;
+		}
+
+		mark{
+			color: #387894;
+			background-color: rgba(220,220,220,.5);
+		}
+
+		.footer {
+			font-size: 14px;
+			margin-top: 0px;
+		}
+
+		#divButtons {
+			text-align: center;
+			margin-bottom: 10px;
+		}
+
+		#barSleepQty, #barMale, #scatter {
+			min-width: 90px;
+			background: #ececec;
+			border: 1px solid #bbb;
+			-webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+			box-shadow: inset 0 0 1px 1px #f6f6f6;
+			color: #333;
+			font: 14px/1 "Roboto";
+			padding: 6px;
+			text-align: center;
+			text-shadow: 0 1px 0 #fff;
+		}
+
+		#barSleepQty {
+			border-radius: 6px 0px 0px 6px;
+			margin: -5px;
+		}
+
+		#barMale{
+			border-radius: 0px 0px 0px 0px;
+		}
+
+		#scatter{
+			border-radius: 0px 6px 6px 0px;
+			margin: -5px;
+		}
+
+		#barSleepQty:hover, #barMale:hover, #scatter:hover{
+		    background: #d9d9d9;
+		    -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
+		    box-shadow: inset 0 0 1px 1px #eaeaea;
+		    color: #222;
+		    cursor: pointer; 
+		}
+
+		#barSleepQty:active, #barMale:active, #scatter:active {
+		    background: #d0d0d0;
+		    -webkit-box-shadow: inset 0 0 1px 1px #e3e3e3;
+		    box-shadow: inset 0 0 1px 1px #e3e3e3;
+		    color: #000; 
+		}
+
+		#barSleepQty:focus, #barMale:focus, #scatter:focus {
+			outline: none;
+		}
+
+		svg {
+			background-color: white;
+		}
+
+		.barTitle{
+			font-family: "Roboto";
+			fill: #444;
+			font-size: 18px;
+		}
+
+		.scatterText{
+			font-family: "Roboto";
+			fill: #888;
+			font-weight: 700;
+			pointer-events: none;
+		}
+
+		.tooltip {	
+		    position: absolute;			
+		    text-align: left;
+		    font-family: "PT Sans", sans-serif;			
+			white-space: normal;					
+		    padding: 6px;				
+		    font-size: 14px;		
+		    background: #eee;	
+		    border: 1px solid gray;	
+		    border-radius: 2px;			
+		    pointer-events: none;
+		    cursor: none;
+		    max-width: 250px;
+		}
+
+		.axisText{
+			font-family: "Roboto";
+			fill: darkslategray;
+			font-size: 12px;
+		}
+
+		.xAxis, .yAxis {
+			shape-rendering: crispEdges;
+		}
+
+		.xAxis text, .yAxis text{
+			font-family: "Roboto";
+			fill: darkslategray;
+		}
+
+		.xAxis path, .yAxis path {
+			stroke: none;
+		}
+
+		.yAxis line, .xAxisScatter line {
+			stroke: #ddd;
+		}
+
+
+
+		.bar { fill: steelblue; }
+
