@@ -3,6 +3,7 @@
 
 var width = 250,
     height = 200;
+    
 
 var paddingBar = [40, 110, 50, 140];
 
@@ -12,8 +13,8 @@ var paddingScatter = [10, 300, 40, 300];
 var svg = d3.select("#svgCanvas")
     .append("svg")
     .attr("width", width) 
-    .attr("height", height);
-
+    .attr("height", height)
+    .attr("align","center");
 var tooltip = d3.select("body")
     .append("div")
     .attr("class", "tooltip")
