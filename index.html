@@ -2,7 +2,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|Roboto" rel="stylesheet">
+        <link href="css/prism.css" rel="stylesheet" />
+        <link href="css/barTOscatter.css" rel="stylesheet" />
+		<meta charset="UTF-8">
+		<title>Info Viz</title>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="plugin/prism.js"></script>
+
+        <link href="https://gerardofurtado.com/fbts/fbts.html" type="tutorial link">
+
+
+        <link rel="icon" type="image/png" sizes="32x32" href="img/ms-icon-70x70.png">
+        <link rel="manifest" href="/manifest.json">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
@@ -10,7 +22,14 @@
 	</head>
 
     <body>
-	    <p> Hello World</p>
+		<div id="container">
+			<h1>Interaction with Sleep Data</h1>
+			
+			<div id="divButtons">
+				<button id="barSleepQty" value="SleepQty">Bar Chart</button>
+				<button id="scatter" value="scatter">Scatter Plot</button>
+			</div>
+			<div id="svgCanvas"></div>
         </div>
         <script src="js/sleepDataViz.js"></script>
         <!-- <script src="js/sleepDataVizRev.js"></script> -->
