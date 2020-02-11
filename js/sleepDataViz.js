@@ -407,18 +407,6 @@ d3.csv("data/SleepData.csv", row, function(data) {
             }
         });
 
-        d3.selection.prototype.dblTap = function(callback) {
-            var last = 0;
-            return this.each(function() {
-              d3.select(this).on("touchstart", function(e) {
-                  if ((d3.event.timeStamp - last) < 500) {
-                    return callback(e);
-                  }
-                  last = d3.event.timeStamp;
-              });
-            });
-          }
-      
           svg.dblTap(function() {
             alert("Double tap!");
           });
@@ -563,4 +551,18 @@ function wrap(text, width) {
 //       return value === source ? target : value;
 //     };
 //   }
+
+$( document ).ready(function() {
+    d3.selection.prototype.dblTap = function(callback) {
+        var last = 0;
+        return this.each(function() {
+          d3.select(this).on("touchstart", function(e) {
+              if ((d3.event.timeStamp - last) < 500) {
+                return callback(e);
+              }
+              last = d3.event.timeStamp;
+          });
+        });
+      }
+});
 
