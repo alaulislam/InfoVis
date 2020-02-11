@@ -407,7 +407,6 @@ d3.csv("data/SleepData.csv", row, function(data) {
             }
         });
 
-
         svg.dblTap(function() {
             alert("Double tap!");
           });
