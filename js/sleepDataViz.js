@@ -407,10 +407,6 @@ d3.csv("data/SleepData.csv", row, function(data) {
             }
         });
 
-          svg.dblTap(function() {
-            alert("Double tap!");
-          });
-
         yAxis.ticks(5)
             .tickValues(null)
             .tickSizeInner(-(width - paddingScatter[1] - paddingScatter[3]));
@@ -553,6 +549,10 @@ function wrap(text, width) {
 //   }
 
 $( document ).ready(function() {
+        svg.dblTap(function() {
+            alert("Double tap!");
+          });
+
     d3.selection.prototype.dblTap = function(callback) {
         var last = 0;
         return this.each(function() {
