@@ -238,9 +238,9 @@ d3.csv("data/SleepData.csv", row, function(data) {
         drawScatter();
     });
 
-    $( "#myHiddenButton" ).click(function() {
-        alert( "Handler for called." );
-      });
+    // $( "#myHiddenButton" ).click(function() {
+    //     alert( "Handler for called." );
+    //   });
 
     d3.select("#container").on("dblclick",function(d){  
         if(!barFlag){
@@ -262,6 +262,11 @@ d3.csv("data/SleepData.csv", row, function(data) {
             drawBars("SleepQty");
             barFlag = false;
         }
+      });
+      svg.on('swipe', function(e, Dx, Dy){
+        var side = (Dx < 0) ? 'left' : (Dx > 0) ? 'right' : (Dy > 0) ? '↑' : (Dy < 0) ? '↓' : '?'; 
+        // $(this).html('<span>' + side + '</span>');
+        alert(side);
       });
 
 
