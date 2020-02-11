@@ -263,11 +263,14 @@ d3.csv("data/SleepData.csv", row, function(data) {
             barFlag = false;
         }
       });
+<<<<<<< HEAD
       svg.on('swipe', function(e, Dx, Dy){
         var side = (Dx < 0) ? 'left' : (Dx > 0) ? 'right' : (Dy > 0) ? '↑' : (Dy < 0) ? '↓' : '?'; 
         // $(this).html('<span>' + side + '</span>');
         alert(side);
       });
+=======
+>>>>>>> 017354615493e4c45a6b3a1868987cfdd4781273
 
 
     
