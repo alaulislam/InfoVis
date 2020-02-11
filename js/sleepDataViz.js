@@ -1,6 +1,22 @@
 // var width = 1000,
 //     height = 450;
 
+$( document ).ready(function() {
+    console.log('Activated!');
+    d3.selection.prototype.dblTap = function(callback) {
+        var last = 0;
+        return this.each(function() {
+          d3.select(this).on("touchstart", function(e) {
+              if ((d3.event.timeStamp - last) < 500) {
+                return callback(e);
+              }
+              last = d3.event.timeStamp;
+          });
+        });
+      }
+});
+
+
 var width = 250,
     height = 200;
  
@@ -222,16 +238,33 @@ d3.csv("data/SleepData.csv", row, function(data) {
         drawScatter();
     });
 
-   // var paddingBar = [40, 110, 50, 140];
+    $( "#myHiddenButton" ).click(function() {
+        alert( "Handler for called." );
+      });
 
-//    var cc = clickcancel();
-//     d3.select('#svgCanvas').call(cc);
-//     cc.on('click', function() {
-//         d3.select('#svgCanvas').text(d3.select('#svgCanvas').text() + 'click, ');
-//     });
-//     cc.on('dblclick', function() {
-//         d3.select('#svgCanvas').text(d3.select('#svgCanvas').text() + 'dblclick, ');
-//     });
+    d3.select("#container").on("dblclick",function(d){  
+        if(!barFlag){
+            drawScatter(); 
+            barFlag = true;
+        }else {
+            drawBars("SleepQty");
+            barFlag = false;
+        }
+    });
+    // d3.select("div").dblTap(function() {
+    //     alert("Double tap!");
+    //   });
+    svg.dblTap(function() {
+        if(!barFlag){
+            drawScatter(); 
+            barFlag = true;
+        }else {
+            drawBars("SleepQty");
+            barFlag = false;
+        }
+      });
+
+
     
    function drawBars(sleep) {
 
@@ -397,20 +430,6 @@ d3.csv("data/SleepData.csv", row, function(data) {
             tooltip.style("opacity", 0)
         })
 
-        svg.on("dblclick",function(d){  
-            if(!barFlag){
-                drawScatter(); 
-                barFlag = true;
-            }else {
-                drawBars("SleepQty");
-                barFlag = false;
-            }
-        });
-
-        svg.dblTap(function() {
-            alert("Double tap!");
-          });
-
         yAxis.ticks(5)
             .tickValues(null)
             .tickSizeInner(-(width - paddingScatter[1] - paddingScatter[3]));
@@ -499,71 +518,4 @@ function wrap(text, width) {
         }
     });
 }
-
-// function clickcancel() {
-//     var event = d3.dispatch('click', 'dblclick');
-//     function cc(selection) {
-//         var down,
-//             tolerance = 5,
-//             last,
-//             wait = null;
-//         // euclidean distance
-//         function dist(a, b) {
-//             return Math.sqrt(Math.pow(a[0] - b[0], 2), Math.pow(a[1] - b[1], 2));
-//         }
-//         selection.on('mousedown', function() {
-//             down = d3.mouse(document.body);
-//             last = +new Date();
-//         });
-//         selection.on('mouseup', function() {
-//             if (dist(down, d3.mouse(document.body)) > tolerance) {
-//                 return;
-//             } else {
-//                 if (wait) {
-//                     window.clearTimeout(wait);
-//                     wait = null;
-//                     event.dblclick(d3.event);
-//                 } else {
-//                     wait = window.setTimeout((function(e) {
-//                         return function() {
-//                             event.click(e);
-//                             wait = null;
-//                         };
-//                     })(d3.event), 300);
-//                 }
-//             }
-//         });
-//     };
-//     return rebind(cc, event, 'on');
-// }
-
-// function rebind(target, source) {
-//     var i = 1,
-//       n = arguments.length,
-//       method;
-//     while (++i < n) target[method = arguments[i]] = d3_rebind(target, source, source[method]);
-//     return target;
-//   };
-  
-//   function d3_rebind(target, source, method) {
-//     return function() {
-//       var value = method.apply(source, arguments);
-//       return value === source ? target : value;
-//     };
-//   }
-
-$( document ).ready(function() {
-    console.log('Activated!');
-    d3.selection.prototype.dblTap = function(callback) {
-        var last = 0;
-        return this.each(function() {
-          d3.select(this).on("touchstart", function(e) {
-              if ((d3.event.timeStamp - last) < 500) {
-                return callback(e);
-              }
-              last = d3.event.timeStamp;
-          });
-        });
-      }
-});
 
